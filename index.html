@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Vendas - Loja de Roupas</title>
+  <link rel="stylesheet" href="Estilo/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, select, button { margin: 5px; padding: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Cadastro de Peças</h1>
+  <form id="formCadastro">
+    <input type="text" id="nome" placeholder="Nome da peça" required>
+    <input type="number" id="valor" placeholder="Valor" required>
+    <input type="text" id="tamanho" placeholder="Tamanho" required>
+    <input type="number" id="quantidade" placeholder="Quantidade" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h2>Peças Cadastradas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Tamanho</th>
+        <th>Quantidade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaPecas"></tbody>
+  </table>
+
+  <button onclick="exportarCSV()">📁 Exportar Peças para CSV</button>
+  <button onclick="exportarVendasCSV()">📁 Exportar Vendas para CSV</button>
+  <button onclick="exportarPDF()">🧾 Exportar Relatório em PDF</button>
+
+  <h2>Realizar Venda</h2>
+  <form id="formVenda">
+    <select id="pecaVenda" required>
+      <option value="">Selecione uma peça</option>
+    </select>
+    <input type="number" id="quantidadeVenda" placeholder="Quantidade vendida" required>
+    <button type="submit">Vender</button>
+  </form>
+
+  <h3>Histórico de Vendas</h3>
+  <ul id="historicoVendas"></ul>
+
+  <h3>Total Vendido: <span id="totalVendido">R$ 0,00</span></h3>
+
+  <h3>🔔 Peças com Estoque Baixo</h3>
+  <ul id="estoqueBaixo"></ul>
+
+  <script src="javascript/script.js"></script>
+</body>
+</html>

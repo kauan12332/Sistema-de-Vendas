@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.482), rgba(204, 204, 3, 0.866));
+  color: rgb(0, 0, 0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    background-color: beige;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
