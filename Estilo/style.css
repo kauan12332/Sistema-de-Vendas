@@ -1,40 +1,98 @@
 body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 10px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.482), rgba(204, 204, 3, 0.866));
-  color: rgb(0, 0, 0);
+  margin: 0;
+  background: #121212;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background: #1a1a1a;
+  padding: 20px;
+  text-align: center;
+  color: #FFD700;
+  box-shadow: 0 0 10px #000;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: #1e1e1e;
+  border-left: 5px solid #FFD700;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #00000060;
+}
+
+h2 {
+  color: #FFD700;
+  margin-top: 0;
 }
 
 form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-    background-color: beige;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-input, button {
+input, select {
+  flex: 1 1 200px;
   padding: 10px;
-  font-size: 16px;
+  background: #2b2b2b;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e6c200;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
+  margin-top: 15px;
+  background: #2b2b2b;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background: #1a1a1a;
+  color: #FFD700;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #1a1a1a;
+  color: #888;
+  margin-top: 30px;
+  font-size: 0.9em;
 }
