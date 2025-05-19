@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Controle de Vendas - Loja de Roupas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Vendas - Loja Física</title>
   <link rel="stylesheet" href="Estilo/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <h1>🧥 The K2 Vendas</h1>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>📦 Cadastro de Peças</h2>
+  <!-- Tela de Login -->
+  <div id="loginTela" class="tela-login">
+    <h2 id="loginTitulo">🔐 Bem-vindo ao Sistema</h2>
+    <p>Digite sua senha para continuar</p>
+    <input type="password" id="senhaInput" placeholder="Senha de acesso">
+    <p id="mensagemErro" class="erro"></p>
+    <button onclick="verificarSenha()">Entrar</button>
+  </div>
+
+  <!-- Sistema Principal -->
+  <div id="sistema" style="display:none">
+
+    <header>
+      <span>Sistema de Vendas</span>
+      <button onclick="logout()">⏻ Sair</button>
+    </header>
+
+    <section>
+      <h2>Cadastro de Peças</h2>
       <form id="formCadastro">
-        <input type="text" id="nome" placeholder="Nome da peça" required>
+        <input type="text" id="nome" placeholder="Nome" required>
         <input type="number" id="valor" placeholder="Valor (R$)" required>
         <input type="text" id="tamanho" placeholder="Tamanho" required>
         <input type="number" id="quantidade" placeholder="Quantidade" required>
@@ -23,8 +37,14 @@
       </form>
     </section>
 
-    <section class="card">
-      <h2>🧾 Peças Cadastradas</h2>
+    <section>
+      <h2>Buscar Peças</h2>
+      <input type="text" id="filtroNome" placeholder="🔍 Nome" oninput="filtrarPecas()">
+      <input type="text" id="filtroTamanho" placeholder="📏 Tamanho" oninput="filtrarPecas()">
+    </section>
+
+    <section>
+      <h2>Estoque Atual</h2>
       <table>
         <thead>
           <tr>
@@ -39,38 +59,41 @@
       </table>
     </section>
 
-    <section class="card">
-      <h2>💰 Realizar Venda</h2>
+    <section>
+      <h2>Registrar Venda</h2>
       <form id="formVenda">
-        <select id="pecaVenda" required>
-          <option value="">Selecione uma peça</option>
-        </select>
-        <input type="number" id="quantidadeVenda" placeholder="Quantidade vendida" required>
+        <select id="pecaVenda" required></select>
+        <input type="number" id="quantidadeVenda" placeholder="Quantidade" required>
         <button type="submit">Vender</button>
       </form>
     </section>
 
-    <section class="card">
-      <h2>📈 Histórico de Vendas</h2>
+    <section>
+      <h2>Histórico de Vendas</h2>
       <ul id="historicoVendas"></ul>
-      <h3>Total Vendido: <span id="totalVendido">R$ 0,00</span></h3>
+      <p><strong>Total Vendido:</strong> <span id="totalVendido">R$ 0,00</span></p>
     </section>
 
-    <section class="card">
-      <h2>🔔 Estoque Baixo</h2>
+    <section>
+      <h2>Estoque Baixo</h2>
       <ul id="estoqueBaixo"></ul>
     </section>
 
-    <section class="card">
-      <h2>📤 Exportações</h2>
-      <button onclick="exportarCSV()">Exportar Peças (CSV)</button>
-      <button onclick="exportarVendasCSV()">Exportar Vendas (CSV)</button>
-      <button onclick="exportarPDF()">Exportar Relatório (PDF)</button>
+    <section>
+      <h2>Gráfico de Vendas</h2>
+      <canvas id="graficoVendas" width="400" height="200"></canvas>
     </section>
-  </main>
+
+    <section class="botoesExportacao">
+      <button onclick="exportarCSV()">📁 Exportar Peças (CSV)</button>
+      <button onclick="exportarVendasCSV()">📁 Exportar Vendas (CSV)</button>
+      <button onclick="exportarPDF()">📄 Exportar PDF</button>
+    </section>
+
+  </div>
 
   <footer>
-    <p>© 2025 KCode Studio • Sistema de Vendas - desenvolvidor Kaua Andrade</p>
+    &copy 2025 - Sistema de Vendas todos os direitos reservados / desnvolvidor por Kaua Andrade
   </footer>
 
   <script src="javascript/script.js"></script>

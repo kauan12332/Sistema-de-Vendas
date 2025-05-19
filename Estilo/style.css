@@ -1,98 +1,201 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  background: #121212;
-  color: #f1f1f1;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  line-height: 1.6;
+  padding-bottom: 100px;
 }
 
 header {
-  background: #1a1a1a;
+  background: #000;
   padding: 20px;
-  text-align: center;
   color: #FFD700;
-  box-shadow: 0 0 10px #000;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-main {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.card {
-  background: #1e1e1e;
-  border-left: 5px solid #FFD700;
-  padding: 20px;
-  margin-bottom: 30px;
+header button {
+  font-size: 0.9em;
+  padding: 8px 16px;
+  background: #FFD700;
+  border: none;
+  color: #000;
+  font-weight: bold;
   border-radius: 6px;
-  box-shadow: 0 0 10px #00000060;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header button:hover {
+  background: #fff100;
+}
+
+section {
+  padding: 25px;
+  margin: 15px auto;
+  max-width: 1000px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
 }
 
 h2 {
   color: #FFD700;
-  margin-top: 0;
+  border-left: 5px solid #FFD700;
+  padding-left: 12px;
+  margin-bottom: 15px;
+  font-size: 1.4em;
 }
 
-form {
+form,
+.botoesExportacao {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 15px;
+  align-items: center;
 }
 
-input, select {
-  flex: 1 1 200px;
-  padding: 10px;
-  background: #2b2b2b;
-  border: 1px solid #444;
-  color: #fff;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 20px;
-  background: #FFD700;
-  color: #000;
+input,
+select {
+  padding: 12px;
+  border-radius: 8px;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  background-color: #222;
+  color: #FFD700;
+  font-size: 1em;
+  flex: 1 1 200px;
   transition: 0.3s;
 }
 
+input:focus,
+select:focus {
+  outline: 2px solid #FFD700;
+  background-color: #1a1a1a;
+}
+
+button {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
 button:hover {
-  background: #e6c200;
+  background: #fff100;
+  transform: scale(1.05);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
-  background: #2b2b2b;
-  border-radius: 5px;
-  overflow: hidden;
+  margin-top: 10px;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #444;
-}
-
-th {
-  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+  text-align: left;
   color: #FFD700;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
+th {
+  background-color: #1a1a1a;
 }
 
-footer {
+tr:hover {
+  background-color: #222;
+}
+
+canvas {
+  background: #0f0f0f;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 100%;
+}
+
+#loginTela {
+  background-color: #000;
+  color: #FFD700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
   text-align: center;
-  padding: 15px;
-  background: #1a1a1a;
-  color: #888;
-  margin-top: 30px;
-  font-size: 0.9em;
+  padding: 20px;
+}
+
+#loginTela input {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  padding: 10px;
+}
+
+.erro {
+  color: red;
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.botoesExportacao {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  input, select, button {
+    flex: 1 1 100%;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botoesExportacao {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  th, td {
+    padding: 8px;
+  }
 }
