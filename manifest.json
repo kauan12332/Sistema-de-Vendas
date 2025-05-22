@@ -1,0 +1,21 @@
+{
+  "name": "Sistema de Vendas - Loja",
+  "short_name": "VendasLoja",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFD700",
+  "description": "Sistema de controle de vendas de roupas.",
+  "icons": [
+    {
+      "src": "icones/pequeno.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icones/grande.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
